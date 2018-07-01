@@ -111,9 +111,9 @@ namespace LanguageFeatures.Controllers
             return View(new string[] { $"Total : {total:c2}" });
             **/
 
-            //==============================================
-            //=4.6.1 - Pattern matching in Switch statement=
-            //==============================================
+            /* //==============================================
+               //=4.6.1 - Pattern matching in Switch statement=
+               //==============================================
 
             object[] data = new object[] {275M,29.95M,"apple","orange",100,10 };
             decimal totalDecimal = 0;
@@ -131,7 +131,10 @@ namespace LanguageFeatures.Controllers
                 }
             }
             return View(new string[] { $"Total Decimal : {totalDecimal:c2}, Total int : {totalInt}" });
-            
+            **/
+            ShoppingCart cart = new ShoppingCart { products = Product.GetProducts() };
+            decimal cartTotal = cart.TotalPrices();
+            return View(new string[] { $"Total : {cartTotal:C2}" });
         }
     }
 }
